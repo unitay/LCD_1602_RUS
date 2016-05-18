@@ -41,8 +41,8 @@ void LCD_1602_RUS::print(long val, int base){
 void LCD_1602_RUS::print(unsigned long val, int base){
   cursor_col += LiquidCrystal_I2C::print(val, base);
 }
-void LCD_1602_RUS::print(char val, int base){
-  cursor_col += LiquidCrystal_I2C::print(val, base);
+void LCD_1602_RUS::print(char val){
+  cursor_col += LiquidCrystal_I2C::print(val);
 }
 void LCD_1602_RUS::print(unsigned char val, int base){
   cursor_col += LiquidCrystal_I2C::print(val, base);

@@ -14,8 +14,8 @@ public:
   void print(long, int = DEC);
   void print(unsigned long, int = DEC);
   void print(const String &);
-  void print(char, int = BYTE);
-  void print(unsigned char, int = BYTE);
+  void print(char);
+  void print(unsigned char, int = DEC);
   void print(double, int = 2);
   void clear();
 	void setCursor(uint8_t, uint8_t); 
