@@ -340,11 +340,14 @@ void LCD_1602_RUS::CharSetToLCD(uint8_t *array, uint8_t *index)
     createChar(symbol_index, (uint8_t *)array);// Создаем символ на текущем (по очереди) месте в знакогенераторе (от 0 до MAX_SYMBOL_COUNT)
     setCursor(x,y);
     write(symbol_index);// Выводим символ на экран
-    //Запомианем, что букве соответствует определенный индекс
+    //Запоминаем, что букве соответствует определенный индекс
     *index = symbol_index;
     symbol_index++;
     if(symbol_index >= MAX_SYMBOL_COUNT)
+    {
     	symbol_index = 0;
+        ResetAllIndex();
+    }
   }
   else   //Иначе печатаем уже существующий
     write(*index);
