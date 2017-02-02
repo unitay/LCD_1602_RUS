@@ -70,6 +70,7 @@ void LCD_1602_RUS::print(const wchar_t *_str){
     {
       //Русский алфавит, требующий новых символов
       //Единовременно может быть заменено только 8 символов
+      //{
       case 1041: //Б
         memcpy_PF(rus_, (uint32_t)rus_B, 8);
         CharSetToLCD((uint8_t *)rus_, &index_rus_B);
@@ -258,7 +259,9 @@ void LCD_1602_RUS::print(const wchar_t *_str){
         memcpy_PF(rus_, (uint32_t)rus_ya, 8);
         CharSetToLCD((uint8_t *)rus_, &index_rus_ya);
       break;
+      //}
       //Русский алфавит, использующий одинаковые с английским алфавитом символы
+      //{
       case 1040: //А
         LiquidCrystal_I2C::print("A");
       break;
@@ -319,6 +322,7 @@ void LCD_1602_RUS::print(const wchar_t *_str){
       case 0x00B0: //Знак градуса
         LiquidCrystal_I2C::write(223);
       break;
+      //}
       //Английский алфавит без изменения
       default:
         LiquidCrystal_I2C::print((char)_str[current_char]);
@@ -327,7 +331,17 @@ void LCD_1602_RUS::print(const wchar_t *_str){
     current_char++;
     cursor_col++;
   }
- 
+}
+void LCD_1602_RUS::print(int code, bool spec) {
+    uint8_t arr[8];
+
+    switch(code) {
+        case 1: //Знак колокольчика
+            memcpy_PF(arr, (uint32_t)zn_kol, 8);
+            CharSetToLCD((uint8_t *)arr, &index_zn_kol);      
+        break;
+    }
+    cursor_col++;
 }
 void LCD_1602_RUS::CharSetToLCD(uint8_t *array, uint8_t *index)
 {
@@ -402,7 +416,11 @@ void LCD_1602_RUS::ResetAllIndex()
   index_rus_ee=255;
   index_rus_yu=255;
   index_rus_ya=255;
+  index_zn_kol=255;
 }
+
+//symbols
+//{
 //Б
 const byte rus_B[8] PROGMEM = {
   0b11111,
@@ -894,3 +912,14 @@ const byte rus_ya[8] PROGMEM = {
   0b01001,
   0b00000
 };//я
+const byte zn_kol[8] PROGMEM = {
+  0b00100,
+  0b01110,
+  0b01110,
+  0b01110,
+  0b11111,
+  0b00100,
+  0b00000,
+  0b00000
+};//колокольчик
+//}

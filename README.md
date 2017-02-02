@@ -6,8 +6,9 @@ Arduino LCD 16x02 display with I2C interface RUSSIAN with NO CYRILLIC symbols se
 Символы, одинаковые по начертанию с английскими (A, B, C, O, P и т.п.) используются из английского набора символов.
 Дополнительно встроена возможность печати знака градуса Цельсия. Для этого в тексте программы необходимо набрать
 код UTF-8 (Alt+0176)
+Также добавлена возможность использовать свои символы.
 
-Должна быть установелна базовая библиотека LiquidCrystal_I2C: https://github.com/marcoschwartz/LiquidCrystal_I2C
+Должна быть установлена базовая библиотека LiquidCrystal_I2C: https://github.com/marcoschwartz/LiquidCrystal_I2C
 
 Возможные ошибки при компиляции примеров:
 1) Ошибка "exit status 1

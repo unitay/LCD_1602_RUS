@@ -6,21 +6,22 @@
 
 class LCD_1602_RUS : public LiquidCrystal_I2C {
 public:
-	LCD_1602_RUS(uint8_t, uint8_t, uint8_t);
-	void print(const wchar_t[]);
-	void print(const char[]);
-  void print(int, int = DEC);
-  void print(unsigned int, int = DEC);
-  void print(long, int = DEC);
-  void print(unsigned long, int = DEC);
-  void print(const String &);
-  void print(char);
-  void print(unsigned char, int = DEC);
-  void print(double, int = 2);
-  void clear();
-	void setCursor(uint8_t, uint8_t); 
-	uint8_t getCursorCol(); 
-	uint8_t getCursorRow(); 
+    LCD_1602_RUS(uint8_t, uint8_t, uint8_t);
+    void print(const wchar_t[]);
+    void print(const char[]);
+    void print(int, int = DEC);
+    void print(unsigned int, int = DEC);
+    void print(long, int = DEC);
+    void print(unsigned long, int = DEC);
+    void print(const String &);
+    void print(char);
+    void print(unsigned char, int = DEC);
+    void print(double, int = 2);
+    void print(int code, bool spec);
+    void clear();
+    void setCursor(uint8_t, uint8_t); 
+    uint8_t getCursorCol(); 
+    uint8_t getCursorRow(); 
 
 private:
   void CharSetToLCD(uint8_t *, uint8_t *);
@@ -78,6 +79,8 @@ private:
   uint8_t index_rus_ee;
   uint8_t index_rus_yu;
   uint8_t index_rus_ya;
+
+  uint8_t index_zn_kol;
 };
 
 extern const byte rus_B[];
@@ -128,3 +131,5 @@ extern const byte rus_myagk_mal[];
 extern const byte rus_ee[];
 extern const byte rus_yu[];
 extern const byte rus_ya[];
+
+extern const byte zn_kol[];
