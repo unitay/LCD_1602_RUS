@@ -53,6 +53,14 @@ void LCD_1602_RUS::print(const String &str){
 void LCD_1602_RUS::print(double val, int base){
   cursor_col += LiquidCrystal_I2C::print(val, base);
 }
+void LCD_1602_RUS::printF(const wchar_t *_str){
+    wchar_t bufferDisp[17];
+
+    for( int i = 0 ; i < 16 ; i++) {
+        bufferDisp[i] = pgm_read_word(_str + i);
+    }
+    print(bufferDisp);
+}
 void LCD_1602_RUS::print(const wchar_t *_str){
   uint8_t rus_[8];
   int current_char  = 0;

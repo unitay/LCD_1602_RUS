@@ -6,7 +6,8 @@ Arduino LCD 16x02 display with I2C interface RUSSIAN with NO CYRILLIC symbols se
 Символы, одинаковые по начертанию с английскими (A, B, C, O, P и т.п.) используются из английского набора символов.
 Дополнительно встроена возможность печати знака градуса Цельсия. Для этого в тексте программы необходимо набрать
 код UTF-8 (Alt+0176)
-Также добавлена возможность использовать свои символы.
+Добавлена возможность использовать свои символы.
+Добавлена возможность использовать строки из Flash-памяти.
 
 Должна быть установлена базовая библиотека LiquidCrystal_I2C: https://github.com/marcoschwartz/LiquidCrystal_I2C
 
@@ -14,7 +15,3 @@ Arduino LCD 16x02 display with I2C interface RUSSIAN with NO CYRILLIC symbols se
 1) Ошибка "exit status 1
 converting to execution character set: Illegal byte sequence"
 Решение: сохранить измененный скетч в новое место на диске с другим именем.
-
-
-(c) Сергей Сироткин
-По вопросам обращаться: ssilver2007@rambler.ru

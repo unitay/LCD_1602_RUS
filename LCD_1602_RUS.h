@@ -8,6 +8,7 @@ class LCD_1602_RUS : public LiquidCrystal_I2C {
 public:
     LCD_1602_RUS(uint8_t, uint8_t, uint8_t);
     void print(const wchar_t[]);
+    void printF(const wchar_t[]);
     void print(const char[]);
     void print(int, int = DEC);
     void print(unsigned int, int = DEC);
