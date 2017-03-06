@@ -1,5 +1,5 @@
 #include <LiquidCrystal_I2C.h>
-#include "Print.h"
+#include <Print.h>
 
 #define MAX_SYMBOL_COUNT 8  //Максимальное количество переназначаемых символов от 0 до 7
 #define BYTE 0
@@ -19,6 +19,7 @@ public:
     void print(unsigned char, int = DEC);
     void print(double, int = 2);
     void print(int code, bool spec);
+    void fillLine();
     void clear();
     void setCursor(uint8_t, uint8_t); 
     uint8_t getCursorCol(); 
@@ -28,6 +29,8 @@ private:
   void CharSetToLCD(uint8_t *, uint8_t *);
   void ResetAllIndex();
 
+  uint8_t cols_count;
+  
   int symbol_index;//Индекс символа (от 0 до 7)
   uint8_t cursor_col;
   uint8_t cursor_row;

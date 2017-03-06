@@ -4,8 +4,17 @@
 
 LCD_1602_RUS :: LCD_1602_RUS(uint8_t lcd_Addr,uint8_t lcd_cols,uint8_t lcd_rows) : LiquidCrystal_I2C (lcd_Addr, lcd_cols, lcd_rows)
 {
-   symbol_index = 0;
-   ResetAllIndex();//Сброс значений индексов (неинициализированы = 255)
+    cols_count = lcd_cols;
+    symbol_index = 0;
+    ResetAllIndex();//Сброс значений индексов (неинициализированы = 255)
+}
+//заполняет оставшееся место в строке пробелами
+void LCD_1602_RUS::fillLine()
+{
+    for (uint8_t i = cursor_col ; i < cols_count ; i++) {
+        print(' ');
+    }
+    cursor_col = cols_count;
 }
 void LCD_1602_RUS::clear()
 {
@@ -54,9 +63,9 @@ void LCD_1602_RUS::print(double val, int base){
   cursor_col += LiquidCrystal_I2C::print(val, base);
 }
 void LCD_1602_RUS::printF(const wchar_t *_str){
-    wchar_t bufferDisp[17];
+    wchar_t bufferDisp[cols_count+1];
 
-    for( int i = 0 ; i < 16 ; i++) {
+    for (uint8_t i = 0 ; i < cols_count ; i++) {
         bufferDisp[i] = pgm_read_word(_str + i);
     }
     print(bufferDisp);

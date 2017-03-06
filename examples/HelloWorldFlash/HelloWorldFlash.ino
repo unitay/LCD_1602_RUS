@@ -12,14 +12,17 @@ void setup()
   lcd.backlight();
 
   lcd.setCursor(14, 0);
-  lcd.print('.');
+  lcd.print("123");
   lcd.setCursor(12, 1);
-  lcd.print('.');
+  lcd.print("1234");
     
   lcd.setCursor(2, 0);
   lcd.printF(line1);
+  lcd.fillLine();
+  
   lcd.setCursor(3, 1);
   lcd.printF(line2);
+  lcd.fillLine();
 }
 
 void loop()
