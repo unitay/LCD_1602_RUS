@@ -2,8 +2,9 @@
 
 LCD_1602_RUS lcd(0x27, 16, 2);
 
-const wchar_t line1[] PROGMEM = L"Теперь можно";
-const wchar_t line2[] PROGMEM = L"по-русски";
+const wchar_t textPitch[] PROGMEM = L"НАКЛОНА";
+const wchar_t textSet[]   PROGMEM = L"ВВОД";
+const wchar_t textTimer[] PROGMEM = L"ТАЙМЕР";
 
 void setup()
 {
@@ -16,12 +17,17 @@ void setup()
   lcd.setCursor(12, 1);
   lcd.print("1234");
     
-  lcd.setCursor(2, 0);
-  lcd.printF(line1);
+  lcd.setCursor(1, 0);
+  lcd.printF(textSet);
+  lcd.print(' ');
+  lcd.printF(textPitch);
   lcd.fillLine();
   
-  lcd.setCursor(3, 1);
-  lcd.printF(line2);
+  lcd.setCursor(1, 1);
+  lcd.printF(textPitch, 4, 2);
+  lcd.print(' ');
+  lcd.printF(textTimer);
+  lcd.print('A');
   lcd.fillLine();
 }
 
